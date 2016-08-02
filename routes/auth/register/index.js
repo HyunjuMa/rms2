@@ -1,23 +1,20 @@
 //회원 가입과 관련된 라우팅
-var express = require('express');
-var router = express.Router();
 
-var mongoose = require('mongoose');
+module.exports = function(app, User) {
 
-//Controller 관리
-var register = require('../../../controllers/auth/register');
+  //Controller 관리
+  var register = require('../../../controllers/auth/register');
 
-//Common 관리
-var common = require('../../../controllers/common');
+  //Common 관리
+  var common = require('../../../controllers/common');
 
-module.exports = function(router, User) {
 
   /* GET home page. */
-  router.get('/', function(req, res, next) {
+  app.get('/', function(req, res, next) {
     res.render('auth/register', { title: 'Register Page' });
   });
 
-  router.post('auth/reqister', function(req,res){
+  app.post('/', function(req,res){
     var user = new User();
     user.name = req.body.name;
     user.email = req.body.email;

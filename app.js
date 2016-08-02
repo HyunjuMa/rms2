@@ -28,13 +28,13 @@ app.use(express.static(__dirname + '/public'));
 
 
 // router setup
-routes(app);
+app.use('/', routes)
 
 // // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 //
 // // start server on the specified port and binding host
-app.listen(3000, '0.0.0.0', function() {
+app.listen(appEnv, '0.0.0.0', function() {
   // print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
@@ -49,4 +49,4 @@ db.once('open', function() {
 
 mongoose.connect('mongodb://localhost/users');
 var User = require('./models/user');
-var router_user = require('./routes/auth/register/index')(app,User);
+var router_user = require('./routes/auth/register/')(app, User);
