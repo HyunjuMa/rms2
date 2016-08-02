@@ -18,7 +18,7 @@ module.exports = function(app, User) {
     res.render('auth/register', { title: 'Register Page' });
   });
 
-  app.post('/auth/register', function(req,res){
+  app.post('/', function(req,res){
     var user = new User();
     user.name = req.body.name;
     user.email = req.body.email;
