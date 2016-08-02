@@ -1,4 +1,9 @@
+/*
 //회원 가입과 관련된 라우팅
+
+var express = require('express');
+var app = express.Router();
+
 
 module.exports = function(app, User) {
 
@@ -9,7 +14,7 @@ module.exports = function(app, User) {
   var common = require('../../../controllers/common');
 
 
-  /* GET home page. */
+  // GET home page.
   app.get('/', function(req, res, next) {
     res.render('auth/register', { title: 'Register Page' });
   });
@@ -32,3 +37,5 @@ module.exports = function(app, User) {
   });//create user
 
 }
+
+*/
