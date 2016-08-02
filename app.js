@@ -49,4 +49,4 @@ db.once('open', function() {
 
 mongoose.connect('mongodb://localhost/users');
 var User = require('./models/user');
-var router_user = require('./routes/auth/register/')(app, User);
+var router_user = require('./routes/auth/register/index')(app, User);
